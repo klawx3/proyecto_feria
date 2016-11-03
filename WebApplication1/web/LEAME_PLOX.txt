@@ -1,0 +1,4 @@
+1)No olvidar instalar la dll de rxtx (serial)
+    -> a)Copy rxtxSerial.dll to %JAVA_HOME%bin, (%JAVA_HOME% is the folder where JRE is installed on your system; e.g. c:Program FilesJavaj2re1.4.1_01)
+       b)Copy RXTXcomm.jar to %JAVA_HOME%libext
+
