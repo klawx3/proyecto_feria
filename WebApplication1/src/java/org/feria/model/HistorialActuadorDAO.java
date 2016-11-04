@@ -29,5 +29,10 @@ public class HistorialActuadorDAO extends DAOAbstracto implements HistorialDispo
     public List<HistorialActuadorDAO> getHistorialDispositivoBetween(Date initialDate, Date endDate) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public HistorialActuadorDAO getLastHistoricoDispositivo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

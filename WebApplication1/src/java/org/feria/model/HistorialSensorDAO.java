@@ -30,6 +30,11 @@ public class HistorialSensorDAO implements HistorialDispositivosDAOFactory<Histo
     public List<HistorialSensorDAO> getHistorialDispositivoBetween(Date initialDate, Date endDate) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public HistorialSensorDAO getLastHistoricoDispositivo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
