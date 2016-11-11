@@ -54,7 +54,33 @@ public class HistorialActuadorDAO extends DAOAbstracto implements HistorialDispo
 
     @Override
     public List<HistorialActuador> getHistorialDispositivoBetween(Date initialDate, Date endDate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            int id_historial, fk_actuador, valor_historial = 0;
+            Date fecha_historial = null;
+            String fk_usuario = null;
+
+            ResultSet rs = con.executeQueryRS("SELECT * FROM historial_actuador WHERE fecha_historial BETWEEN '"+initialDate+"' AND '"+endDate+"'");
+
+            List<HistorialActuador> lista = new ArrayList<>();
+
+            while (rs.next()) {
+                id_historial = rs.getInt(1);
+                fk_actuador = rs.getInt(2);
+                fecha_historial = rs.getDate(3);
+                valor_historial = rs.getInt(4);
+                fk_usuario = rs.getString(5);
+
+                HistorialActuador hActuador = new HistorialActuador(
+                        id_historial, fk_actuador, fecha_historial, valor_historial, fk_usuario
+                );
+
+                lista.add(hActuador);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(HistorialActuadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     @Override
