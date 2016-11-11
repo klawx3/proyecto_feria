@@ -61,7 +61,7 @@ public class HistorialSensorDAO extends DAOAbstracto implements HistorialDisposi
             int id_historial, fk_sensor, valor_historial = 0;
             Date fecha_historial = null;
 
-            ResultSet rs = con.executeQueryRS("SELECT * FROM historial_sensor WHERE fecha_historial BETWEEN '"+initialDate+"' AND '"+endDate+"'");
+            ResultSet rs = con.executeQueryRS("SELECT * FROM historial_sensor WHERE fecha_historial BETWEEN '" + initialDate + "' AND '" + endDate + "'");
 
             List<HistorialSensor> lista = new ArrayList<>();
 
@@ -86,7 +86,29 @@ public class HistorialSensorDAO extends DAOAbstracto implements HistorialDisposi
 
     @Override
     public HistorialSensor getLastHistoricoDispositivo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            int id_historial, fk_sensor, valor_historial = 0;
+            Date fecha_historial = null;
+
+            ResultSet rs = con.executeQueryRS("SELECT * FROM historial_sensor ORDER BY id DESC LIMIT 1");
+
+            if (rs.next()) {
+                id_historial = rs.getInt(1);
+                fk_sensor = rs.getInt(2);
+                fecha_historial = rs.getDate(3);
+                valor_historial = rs.getInt(4);
+
+                HistorialSensor hSensor = new HistorialSensor(
+                        id_historial, fk_sensor, fecha_historial, valor_historial
+                );
+                return hSensor;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(HistorialActuadorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
     }
 
 }
