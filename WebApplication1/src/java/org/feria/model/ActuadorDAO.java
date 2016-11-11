@@ -5,7 +5,12 @@
  */
 package org.feria.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.feria.bd.Conexion;
 import org.feria.bean.Actuador;
 
@@ -21,17 +26,62 @@ public class ActuadorDAO  extends DAOAbstracto implements DispositivosDAOFactory
 
     @Override
     public List<Actuador> getListaDispositivos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ResultSet rs = con.executeQueryRS("SELECT * FROM actuador");
+            List<Actuador> lista = new ArrayList<>();
+            while (rs.next()) {
+                Actuador act = new Actuador();
+                act.setId(rs.getInt(1));
+                act.setPin(rs.getInt(2));
+                act.setNombre(rs.getString(3));
+                act.setId_tipo(rs.getInt(4));
+                act.setDescripcion(rs.getString(5));
+                lista.add(act);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(SensorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     @Override
     public Actuador getDispositivoById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ResultSet rs = con.executeQueryRS("SELECT * FROM acutuador WHERE id_actuador = " + id);
+            if (rs.next()) {
+                Actuador act = new Actuador();
+                act.setId(rs.getInt(1));
+                act.setPin(rs.getInt(2));
+                act.setNombre(rs.getString(3));
+                act.setId_tipo(rs.getInt(4));
+                act.setDescripcion(rs.getString(5));
+                return act;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SensorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    
     }
 
     @Override
     public Actuador getDispositivoBYPin(int pin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ResultSet rs = con.executeQueryRS("SELECT * FROM acutuador WHERE pin_actuador = " + pin);
+            if (rs.next()) {
+                Actuador act = new Actuador();
+                act.setId(rs.getInt(1));
+                act.setPin(rs.getInt(2));
+                act.setNombre(rs.getString(3));
+                act.setId_tipo(rs.getInt(4));
+                act.setDescripcion(rs.getString(5));
+                return act;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SensorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 
