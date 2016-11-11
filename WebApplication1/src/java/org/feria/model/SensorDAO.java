@@ -67,7 +67,21 @@ public class SensorDAO extends DAOAbstracto implements DispositivosDAOFactory<Se
 
     @Override
     public Sensor getDispositivoBYPin(int pin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ResultSet rs = con.executeQueryRS("SELECT * FROM sensor WHERE pin_sensor = " + pin);
+            if (rs.next()) {
+                Sensor sen = new Sensor();
+                sen.setId(rs.getInt(1));
+                sen.setPin(rs.getInt(2));
+                sen.setNombre(rs.getString(3));
+                sen.setIdtipo(rs.getInt(4));
+                sen.setDescripcion(rs.getString(5));
+                return sen;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SensorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }
