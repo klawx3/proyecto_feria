@@ -13,15 +13,15 @@ import java.util.Date;
  */
 public class HistorialSensor extends HistorialAbstracto{
 
-    public HistorialSensor(int id, int id_dispositivo, Date fecha_accion, int valor) {
+    public HistorialSensor(Integer id, int id_dispositivo, Date fecha_accion, int valor) {
         super(id, id_dispositivo, fecha_accion, valor);
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

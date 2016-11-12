@@ -16,4 +16,5 @@ public interface HistorialDispositivosDAOFactory<E> {
     List<E> getAllHistorialDispositivo();
     List<E> getHistorialDispositivoBetween(Date initialDate,Date endDate);
     E getLastHistoricoDispositivo();
+    void addNewHistorico(E dispositivo);
 }

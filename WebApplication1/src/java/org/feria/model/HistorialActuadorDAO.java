@@ -111,4 +111,12 @@ public class HistorialActuadorDAO extends DAOAbstracto implements HistorialDispo
         return null;
     }
 
+    @Override
+    public void addNewHistorico(HistorialActuador dispositivo) {
+        con.execute(String.format("INSERT INTO historial_sensor VALUES (NULL,%d,now(),%d,'%d')",
+                 dispositivo.getId_dispositivo(),
+                 dispositivo.getValor(),
+                 dispositivo.getEmail_id_usuario()));
+    }
+
 }

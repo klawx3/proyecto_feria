@@ -6,7 +6,12 @@
 package org.feria.app;
 
 import com.klaw.easyarduino.event.ArduinoEventListener;
+import java.util.Calendar;
 import org.feria.bd.Conexion;
+import org.feria.bean.HistorialSensor;
+import org.feria.bean.Sensor;
+import org.feria.model.HistorialSensorDAO;
+import org.feria.model.SensorDAO;
 
 /**
  *
@@ -22,30 +27,34 @@ public class ArduinoHandler implements ArduinoEventListener {
     /**
      * 
      * @param string el string de arduino debe ser con este estandar
-     * ej: nombresensor-valor;
-     *     luz-203;
+     * ej: tipocurva-nombresensor-valor
+     *     a-0-203
      */
     @Override
     public void arduinoEvent(String string) {
         String[] split = string.split("-");
-        if (split.length != 2) {
+        if (split.length != 3) {
             System.err.println("Error rescatando el msg de arduino");
             return;
         }
-        String sensor = split[0];
-        String valor = split[1];
-        int _valor;
+        ArduinoEvent arduinoEvent = null;
         try {
-            _valor = Integer.parseInt(valor);
+            arduinoEvent = new ArduinoEvent(split[0], split[1], split[2]);
+            System.out.println(arduinoEvent);
         } catch (NumberFormatException e) {
-            System.err.println("Error transformando el valor del sensor:" + sensor);
+            System.err.println("Error de protocolo ej: tipocurva-nombresensor-valor  a-0-203");
             return;
         }
-        addToDatabase(sensor,_valor);
+
+
+
+        //addToDatabase(arduinoEvent);
     }
 
-    private void addToDatabase(String sensor, int _valor) {
-        
+    private void addToDatabase(ArduinoEvent arduinoEvent) {
+        //Sensor sen = new SensorDAO(con).getDispositivoBYPin(arduinoEvent.getPin());
+        //HistorialSensor sen = new HistorialSensor(null,sen.getId(),Calendar.getInstance().getTime(),);
+        //new HistorialSensorDAO(con).addNewHistorico(dispositivo);
     }
     
 }

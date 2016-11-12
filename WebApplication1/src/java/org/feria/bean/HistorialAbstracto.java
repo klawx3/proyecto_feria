@@ -12,12 +12,12 @@ import java.util.Date;
  * @author Alumno
  */
 public abstract class HistorialAbstracto {
-    protected int id;
+    protected Integer id;
     protected int id_dispositivo;
     protected Date fecha_accion;
     protected int valor;
 
-    public HistorialAbstracto(int id, int id_dispositivo, Date fecha_accion, int valor) {
+    public HistorialAbstracto(Integer id, int id_dispositivo, Date fecha_accion, int valor) {
         this.id = id;
         this.id_dispositivo = id_dispositivo;
         this.fecha_accion = fecha_accion;

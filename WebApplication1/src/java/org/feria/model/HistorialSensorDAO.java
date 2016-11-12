@@ -111,4 +111,9 @@ public class HistorialSensorDAO extends DAOAbstracto implements HistorialDisposi
 
     }
 
+    @Override
+    public void addNewHistorico(HistorialSensor dispositivo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
