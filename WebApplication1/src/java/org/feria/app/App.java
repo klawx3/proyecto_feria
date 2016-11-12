@@ -5,7 +5,8 @@
  */
 package org.feria.app;
 
-import com.klaw.easyarduino.Arduino;
+
+import com.klaw.easyarduinorxtx.SerialArduino;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import org.feria.bd.Conexion;
@@ -18,7 +19,7 @@ public class App implements ServletContextListener {
     
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        Arduino arduino = new Arduino(SERIAL_PORT, DATA_RATE);
+        SerialArduino arduino = new SerialArduino(SERIAL_PORT, DATA_RATE);
         Conexion con = Conexion.getInstance();
         if (con.isConectado()) {
             System.out.printf("Conectado a : %s\n", con.toString());
@@ -47,7 +48,7 @@ public class App implements ServletContextListener {
         if (c != null) {
             c.close();
         }        
-        Arduino a = (Arduino) sce.getServletContext().getAttribute("a");        
+        SerialArduino a = (SerialArduino) sce.getServletContext().getAttribute("a");        
         if (a != null) {
             if (a.isConnected()) {
                 a.close();
