@@ -19,7 +19,7 @@ void setup() {
     pinMode(DIGITAL_OUT_PINS[i],OUTPUT);  
   }
   for(int i = 0 ; i < LENGTH_DIGITAL_IN_PINS ; i++){
-    pinMode(DIGITAL_IN_PINS[i],OUTPUT);  
+    pinMode(DIGITAL_IN_PINS[i],INPUT);  
   }  
   Serial.begin(9600);
 }
