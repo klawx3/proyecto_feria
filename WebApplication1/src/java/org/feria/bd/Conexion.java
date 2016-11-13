@@ -24,7 +24,7 @@ public class Conexion { // SINGLETON
     
     public static Conexion getInstance(){
         if(instancia == null){
-            instancia = new Conexion("192.168.1.106", "root", "admin", "bd_feria");
+            instancia = new Conexion("localhost", "root", "", "bd_feria");
         }
         return instancia;
     }
@@ -41,8 +41,7 @@ public class Conexion { // SINGLETON
             con = ds.getConnection();
             conectado = true;
         } catch (SQLException ex) {
-            Logger.getLogger(Conexion.class.getName())
-                    .log(Level.SEVERE, null, ex);
+            System.err.println("No se ha podido establecer conexion con la bd" + ex.getMessage());
         }
     }
 

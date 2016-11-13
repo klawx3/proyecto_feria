@@ -12,6 +12,10 @@ package org.feria.bean;
 public class Tipo {
     private int id;
     private String descripcion;
+    
+    public enum Nombre{
+        Analogico,Digital
+    }
 
     public int getId() {
         return id;

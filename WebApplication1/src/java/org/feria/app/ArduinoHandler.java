@@ -39,6 +39,7 @@ public class ArduinoHandler implements com.klaw.easyarduinorxtx.event.ArduinoEve
         ArduinoEvent arduinoEvent = null;
         try {
             arduinoEvent = new ArduinoEvent(split[0], split[1], split[2]);
+            System.out.println("DEBUGGING :" + arduinoEvent);
             addToDatabase(arduinoEvent);
         } catch (NumberFormatException e) {
             System.err.println("Error de protocolo ej: tipocurva-nombresensor-valor  a-0-203");
@@ -46,14 +47,19 @@ public class ArduinoHandler implements com.klaw.easyarduinorxtx.event.ArduinoEve
         }
     }
 
-
     private void addToDatabase(ArduinoEvent arduinoEvent) {
+       
         Sensor _sen = sen.getDispositivoBYPin(arduinoEvent.getPin());
-        HistorialSensor hist_sen = new HistorialSensor(null,
-                _sen.getId(),
-                null, // se hace con la bd
-                arduinoEvent.getValor());
-        his.addNewHistorico(hist_sen);
+        if (_sen != null) {
+            HistorialSensor hist_sen = new HistorialSensor(null,
+                    _sen.getId(),
+                    null, // se hace con la bd
+                    arduinoEvent.getValor());
+            his.addNewHistorico(hist_sen);
+        } else {
+            System.err.println("El sensor asociado a " + arduinoEvent + " no existe.. agrega la wea a la bd pl0x");
+        }
+
     }
 
 

@@ -8,6 +8,7 @@ CREATE TABLE tipo(
 ); -- select * from tipo;
 
 INSERT INTO tipo VALUES(NULL,'Analogico');
+INSERT INTO tipo VALUES(NULL,'Digital');
 
 CREATE TABLE sensor(
 	id_sensor INT AUTO_INCREMENT,
@@ -19,7 +20,7 @@ CREATE TABLE sensor(
     PRIMARY KEY(id_sensor)
 ); -- select * from sensor
 
-INSERT INTO sensor VALUES (null,0,'potenciometro',1,'perilla movible');
+INSERT INTO sensor VALUES (null,0,'Potenciometro',1,'perilla movible');
 
 CREATE TABLE actuador(
 	id_actuador INT AUTO_INCREMENT,
@@ -40,17 +41,17 @@ CREATE TABLE usuario(
 CREATE TABLE historial_sensor(
 	id_historial INT AUTO_INCREMENT,
     fk_sensor INT,
-    fecha_historial DATE,
+    fecha_historial DATETIME,
     valor_historial INT,
     FOREIGN KEY(fk_sensor) REFERENCES sensor(id_sensor),
     PRIMARY KEY(id_historial)
-);
+);-- select * from historial_sensor;
 
 CREATE TABLE historial_actuador(
 	id_historial INT AUTO_INCREMENT,
 	
     fk_actuador INT,
-    fecha_historial DATE,
+    fecha_historial DATETIME,
     valor_historial INT,
     fk_usuario VARCHAR(100),
     FOREIGN KEY(fk_actuador) REFERENCES actuador(id_actuador),
