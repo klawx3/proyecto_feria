@@ -14,15 +14,17 @@ import org.feria.bd.Conexion;
 
 public class App implements ServletContextListener {
     
-    public static final String SERIAL_PORT = "/dev/ttyACM0";
+    public static final String SERIAL_PORT = "COM4";
     public static final int DATA_RATE = 9600;
     
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         SerialArduino arduino = new SerialArduino(SERIAL_PORT, DATA_RATE);
+        arduino.initialize();
         Conexion con = Conexion.getInstance();
         if (con.isConectado()) {
             System.out.printf("Conectado a : %s\n", con.toString());
+            
         } else {
             System.err.println("No ha podido conectar con la base de datos");
         }
