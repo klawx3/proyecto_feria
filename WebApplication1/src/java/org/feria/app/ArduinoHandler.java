@@ -35,7 +35,7 @@ public class ArduinoHandler implements com.klaw.easyarduinorxtx.event.ArduinoEve
         ArduinoEvent arduinoEvent = null;
         try {
             arduinoEvent = new ArduinoEvent(split[0], split[1], split[2]);
-            System.out.println(arduinoEvent);
+            addToDatabase(arduinoEvent);
         } catch (NumberFormatException e) {
             System.err.println("Error de protocolo ej: tipocurva-nombresensor-valor  a-0-203");
             return;
@@ -44,9 +44,12 @@ public class ArduinoHandler implements com.klaw.easyarduinorxtx.event.ArduinoEve
 
 
     private void addToDatabase(ArduinoEvent arduinoEvent) {
-        //Sensor sen = new SensorDAO(con).getDispositivoBYPin(arduinoEvent.getPin());
-        //HistorialSensor sen = new HistorialSensor(null,sen.getId(),Calendar.getInstance().getTime(),);
-        //new HistorialSensorDAO(con).addNewHistorico(dispositivo);
+        Sensor sen = new SensorDAO(con).getDispositivoBYPin(arduinoEvent.getPin());
+        HistorialSensor hist_sen = new HistorialSensor(null,
+                sen.getId(),
+                Calendar.getInstance().getTime(),
+                arduinoEvent.getValor());
+        new HistorialSensorDAO(con).addNewHistorico(hist_sen);
     }
 
 

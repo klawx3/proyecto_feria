@@ -23,8 +23,7 @@ public class App implements ServletContextListener {
         arduino.initialize();
         Conexion con = Conexion.getInstance();
         if (con.isConectado()) {
-            System.out.printf("Conectado a : %s\n", con.toString());
-            
+            System.out.printf("Conectado a : %s\n", con.toString());            
         } else {
             System.err.println("No ha podido conectar con la base de datos");
         }
