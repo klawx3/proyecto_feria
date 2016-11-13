@@ -113,7 +113,11 @@ public class HistorialSensorDAO extends DAOAbstracto implements HistorialDisposi
 
     @Override
     public void addNewHistorico(HistorialSensor dispositivo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = String.format("INSERT INTO historial_sensor VALUES(NULL,%d,now(),%d)"
+                ,dispositivo.getId_dispositivo()
+                ,dispositivo.getValor()
+                );
+        con.execute(sql);
     }
 
 }

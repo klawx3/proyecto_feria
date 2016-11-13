@@ -14,7 +14,7 @@ import org.feria.bd.Conexion;
 
 public class App implements ServletContextListener {
     
-    public static final String SERIAL_PORT = "COM4";
+    public static final String SERIAL_PORT = "/dev/ttyACM0";
     public static final int DATA_RATE = 9600;
     
     @Override

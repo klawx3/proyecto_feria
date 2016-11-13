@@ -19,9 +19,13 @@ import org.feria.model.SensorDAO;
 public class ArduinoHandler implements com.klaw.easyarduinorxtx.event.ArduinoEventListener{
     
     private Conexion con;
+    private SensorDAO sen;
+    private HistorialSensorDAO his;
     
     public ArduinoHandler(Conexion con){
         this.con = con;
+        sen = new SensorDAO(con);
+        his = new HistorialSensorDAO(con);
     }
     
 
@@ -44,12 +48,12 @@ public class ArduinoHandler implements com.klaw.easyarduinorxtx.event.ArduinoEve
 
 
     private void addToDatabase(ArduinoEvent arduinoEvent) {
-        Sensor sen = new SensorDAO(con).getDispositivoBYPin(arduinoEvent.getPin());
+        Sensor _sen = sen.getDispositivoBYPin(arduinoEvent.getPin());
         HistorialSensor hist_sen = new HistorialSensor(null,
-                sen.getId(),
-                Calendar.getInstance().getTime(),
+                _sen.getId(),
+                null, // se hace con la bd
                 arduinoEvent.getValor());
-        new HistorialSensorDAO(con).addNewHistorico(hist_sen);
+        his.addNewHistorico(hist_sen);
     }
 
 
