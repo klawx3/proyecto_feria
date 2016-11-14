@@ -19,10 +19,31 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-    <body>
+    <body onfocus="updateHistory()" onmousemove="updateHistory()">
+        <script>
+            function updateHistory(){
+                /*var tagResults = document.getElementById("results");
+                var tblBody = document.getElementById("tblBody");
+
+                tblBody.removeChild(tagResults);
+                var newDiv = document.createElement("div");
+                newDiv.id = "results";
+                tblBody.appendChild(newDiv);
+                */
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:8084/proyecto_feria_final_netbeans/updateSH.do',
+                    data: {}
+                }).done(function(respuesta){
+                    $("#tblBody").html(respuesta);
+                });
+            }
+            
+        </script>
+        
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -48,27 +69,15 @@
     <div class="jumbotron">
         <div class="container">
 
-
-
             <table class="table table-inverse"> 
                 <thead>
                     <tr>
                         <th>Pin Sensor</th>
                         <th>Nombre</th>
-                        <th>Valor (el ultimo valor de la bd viejaaaaaaa (con ajax))</th>
+                        <th>Valor</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>123</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>3213</td>
-                    </tr>
+                <tbody id="tblBody">
                 </tbody>
             </table>
         </div>
@@ -80,7 +89,7 @@
       <footer>
         <p>&copy; Instituto Profesional Santo Tomas</p>
       </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+     <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>

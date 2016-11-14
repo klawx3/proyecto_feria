@@ -24,7 +24,7 @@ public class Conexion { // SINGLETON
     
     public static Conexion getInstance(){
         if(instancia == null){
-            instancia = new Conexion("localhost", "root", "", "bd_feria");
+            instancia = new Conexion("localhost", "root", "admin", "bd_feria");
         }
         return instancia;
     }

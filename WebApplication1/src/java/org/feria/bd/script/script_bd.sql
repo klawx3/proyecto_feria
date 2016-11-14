@@ -59,3 +59,10 @@ CREATE TABLE historial_actuador(
     FOREIGN KEY(fk_usuario) REFERENCES usuario(email_usuario),
     PRIMARY KEY(id_historial)
 );
+
+-- Obtener valor del ultimo registro de historial_sensor
+select s.pin_sensor, s.nombre_sensor, hs.valor_historial 
+from sensor s, historial_sensor hs 
+where hs.fk_sensor = s.id_sensor 
+order by hs.id_historial desc limit 1;
+
