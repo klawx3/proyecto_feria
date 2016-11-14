@@ -1,4 +1,4 @@
-const bool DEBUG = true;
+const bool DEBUG = false;
 //CONST -------------------------------------
 const int DIGITAL_OUT_PINS[] = {3,4,5,6};
 const int LENGTH_DIGITAL_OUT_PINS = 4;
@@ -6,15 +6,14 @@ const int LENGTH_DIGITAL_OUT_PINS = 4;
 const int DIGITAL_IN_PINS[] = {7,8,9};
 const int LENGTH_DIGITAL_IN_PINS = 3; 
 
-const int ANALOG_PINS[] = {0};
-const int LENGTH_ANALOG_PINS = 1;
+const int ANALOG_PINS[] = {0,1};
+const int LENGTH_ANALOG_PINS = 2;
 
 const long MILLIS_TO_PRINT = 1000;
 //VAR ---------------------------------------
 long _lastMillis = 0;
 
-void setup() {
-  
+void setup() {  
   for(int i = 0 ; i < LENGTH_DIGITAL_OUT_PINS ; i++){
     pinMode(DIGITAL_OUT_PINS[i],OUTPUT);  
   }
@@ -25,7 +24,7 @@ void setup() {
 }
 
 void loop() {
-  readIncomingCharacter_DoSomething();
+  readIncomingCharacter_DoSomething(); //ex: onn4 or off3
   printAnalogSensors();
 }
 
