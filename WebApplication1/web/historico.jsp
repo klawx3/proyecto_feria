@@ -39,44 +39,39 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <a class="navbar-brand" href="registro.jsp">Registros</a>
-          
+
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
 
     <div class="jumbotron">
-      <div class="container">
-        
-          <div>Actuador</div>
-          <table border="1">
-              <tr>
-                  <td>ID</td>
-                  <td>Pin</td>
-                  <td>Nombre</td>
-                  <td>ID_tipo</td>
-                  <td>Descripcion</td>
-              </tr>
+        <div class="container">
 
 
 
-          </table>
-          
-             <div>Sensor</div>
-          <table border="1">
-              <tr>
-                  <td>ID</td>
-                  <td>Pin</td>
-                  <td>Nombre</td>
-                  <td>ID_tipo</td>
-                  <td>Descripcion</td>
-              </tr>
-
-
-
-          </table>
-        
-      </div>
+            <table class="table table-inverse"> 
+                <thead>
+                    <tr>
+                        <th>Pin Sensor</th>
+                        <th>Nombre</th>
+                        <th>Valor (el ultimo valor de la bd viejaaaaaaa (con ajax))</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>123</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>3213</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 

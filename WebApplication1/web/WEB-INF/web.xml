@@ -8,9 +8,17 @@
         <servlet-name>asd</servlet-name>
         <servlet-class>org.feria.controller.asd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ArduinoActuadorServletController</servlet-name>
+        <servlet-class>org.feria.controller.ArduinoActuadorServletController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>asd</servlet-name>
         <url-pattern>/asd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArduinoActuadorServletController</servlet-name>
+        <url-pattern>/arduino_actuador.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

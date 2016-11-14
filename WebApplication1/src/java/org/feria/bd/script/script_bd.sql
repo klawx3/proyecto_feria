@@ -21,6 +21,7 @@ CREATE TABLE sensor(
 ); -- select * from sensor
 
 INSERT INTO sensor VALUES (null,0,'Potenciometro',1,'perilla movible');
+INSERT INTO sensor VALUES (null,1,'Photosensor',1,'sensor de luz visible');
 
 CREATE TABLE actuador(
 	id_actuador INT AUTO_INCREMENT,

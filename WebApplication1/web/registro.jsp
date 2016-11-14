@@ -49,12 +49,30 @@
       <div class="container">
         
         <p>
-            <a href="#" class="a_demo_four">
-                Encender
+            <a href="http://localhost:8084/proyecto_feria_final_netbeans/arduino_actuador.do?pin=4&set=on" class="a_demo_four">
+                Encender PIN 4
+            </a>
+            <a href="http://localhost:8084/proyecto_feria_final_netbeans/arduino_actuador.do?pin=5&set=on" class="a_demo_four">
+                Encender PIN 5
+            </a>
+            <a href="http://localhost:8084/proyecto_feria_final_netbeans/arduino_actuador.do?pin=6&set=on" class="a_demo_four">
+                Encender PIN 6
             </a>
         </p>
-       <br>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <br>
+        <p>
+            <a href="http://localhost:8084/proyecto_feria_final_netbeans/arduino_actuador.do?pin=4&set=off" class="a_demo_four">
+                Apagar  PIN 4
+            </a>
+            <a href="http://localhost:8084/proyecto_feria_final_netbeans/arduino_actuador.do?pin=5&set=off" class="a_demo_four">
+                Apagar  PIN 5
+            </a>
+            <a href="http://localhost:8084/proyecto_feria_final_netbeans/arduino_actuador.do?pin=6&set=off" class="a_demo_four">
+                Apagar  PIN 6
+            </a>
+        </p>
+        <br>
+
       </div>
     </div>
 
