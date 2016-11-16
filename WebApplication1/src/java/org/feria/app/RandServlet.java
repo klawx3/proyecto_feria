@@ -3,28 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.feria.controller;
+package org.feria.app;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.feria.bd.Conexion;
-import org.feria.model.HistorialSensorDAO;
 
 /**
  *
  * @author martin
  */
-@WebServlet(name = "UpdateSensorHistoryServlet", urlPatterns = {"/updateAH.do"})
-public class UpdateActuadorHistoryServlet extends HttpServlet {
+@WebServlet(name = "RandServlet", urlPatterns = {"/rand.do"})
+public class RandServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,23 +32,10 @@ public class UpdateActuadorHistoryServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            PrintWriter out = response.getWriter();
-            HistorialSensorDAO hsDao = new HistorialSensorDAO(Conexion.getInstance());
-            ResultSet res = Conexion.getInstance().executeQueryRS("select a.pin_actuador, a.nombre_actuador, ha.valor_historial \n"
-                    + "from actuador a, historial_actuador ha \n"
-                    + "where ha.fk_actuador = a.id_actuador  order by ha.id_historial desc limit 1;");
-            
-            if (res.next()) {
-                out.print("<tr>");
-                out.print("<th scope=\"row\">"+res.getInt(1)+"</th>");
-                out.print("<td>"+res.getString(2)+"</td>");
-                out.print("<td>"+res.getInt(3)+"</td>");
-                out.print("</tr>");
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdateActuadorHistoryServlet.class.getName()).log(Level.SEVERE, null, ex);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.print(new Random().nextInt());
         }
     }
 

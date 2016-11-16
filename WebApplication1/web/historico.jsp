@@ -22,7 +22,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-    <body onfocus="updateHistory()" onmousemove="updateHistory()">
+    <body onfocus="updateHistory()" onmousemove="updateHistory()" onunload="updateHistory()">
         <script>
             function updateHistory(){
                 /*var tagResults = document.getElementById("results");
@@ -33,10 +33,10 @@
                 newDiv.id = "results";
                 tblBody.appendChild(newDiv);
                 */
+               
                 $.ajax({
                     type: 'POST',
-                    url: 'http://localhost:8084/proyecto_feria_final_netbeans/updateSH.do',
-                    data: {}
+                    url: 'http://localhost:8084/proyecto_feria_final_netbeans/update.do?h=1',
                 }).done(function(respuesta){
                     $("#tblBody").html(respuesta);
                 });
@@ -64,7 +64,7 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-
+        
 
     <div class="jumbotron">
         <div class="container">
@@ -75,6 +75,7 @@
                         <th>Pin Sensor</th>
                         <th>Nombre</th>
                         <th>Valor</th>
+                        
                     </tr>
                 </thead>
                 <tbody id="tblBody">

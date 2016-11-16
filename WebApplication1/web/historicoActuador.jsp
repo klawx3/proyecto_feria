@@ -22,7 +22,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-    <body onfocus="updateHistory()" onmousemove="updateHistory()">
+    <body onfocus="updateHistory()" onmousemove="updateHistory()" on>
         <script>
             function updateHistory(){
                 /*var tagResults = document.getElementById("results");
@@ -35,7 +35,7 @@
                 */
                 $.ajax({
                     type: 'POST',
-                    url: 'http://localhost:8084/proyecto_feria_final_netbeans/updateAH.do',
+                    url: 'http://localhost:8084/proyecto_feria_final_netbeans/update.do?h=2',
                     data: {}
                 }).done(function(respuesta){
                     $("#tblBody").html(respuesta);

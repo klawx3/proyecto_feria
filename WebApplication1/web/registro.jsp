@@ -39,8 +39,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <a class="navbar-brand" href="registro.jsp">Registros</a>
-          
-        </div><!--/.navbar-collapse -->
+          <a class="navbar-brand" href="historico.jsp">Historico</a>
+        </div><!--/.navbar-collapse -->>
+        
       </div>
     </nav>
 

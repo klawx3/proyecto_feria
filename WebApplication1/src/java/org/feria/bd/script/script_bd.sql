@@ -62,13 +62,19 @@ CREATE TABLE historial_actuador(
     PRIMARY KEY(id_historial)
 );
 
--- 1.- Obtener valor del ultimo registro de historial_sensor
+-- 1.- Obtener valor del ultimo registro de historial_sensor - potenciometro
 select s.pin_sensor, s.nombre_sensor, hs.valor_historial 
 from sensor s, historial_sensor hs 
-where hs.fk_sensor = s.id_sensor 
+where hs.fk_sensor = s.id_sensor and s.id_sensor = 1
 order by hs.id_historial desc limit 1;
 
--- 2.- Obtener valor del ultimo registro de historial_actuador
+-- 2 Obtener valor del ultimo registro de historial_sensor - photosensor
+select s.pin_sensor, s.nombre_sensor, hs.valor_historial 
+from sensor s, historial_sensor hs 
+where hs.fk_sensor = s.id_sensor and s.id_sensor = 1
+order by hs.id_historial desc limit 2;
+
+-- 3.- Obtener valor del ultimo registro de historial_actuador
 select a.pin_actuador, a.nombre_actuador, ha.valor_historial 
 from actuador a, historial_actuador ha  
 where ha.fk_actuador = a.id_actuador  order by ha.id_historial desc limit 1;

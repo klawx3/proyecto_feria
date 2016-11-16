@@ -12,12 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Kenshi/Desktop/proyecto_feria/WebApplication1/web/css/main.css</file>
-            <file>file:/C:/Users/Kenshi/Desktop/proyecto_feria/WebApplication1/web/LEAME_PLOX.txt</file>
-            <file>file:/C:/Users/Kenshi/Desktop/proyecto_feria/WebApplication1/src/java/org/feria/controller/ArduinoActuadorServletController.java</file>
-            <file>file:/C:/Users/Kenshi/Desktop/proyecto_feria/WebApplication1/web/registro.jsp</file>
-            <file>file:/C:/Users/Kenshi/Desktop/proyecto_feria/WebApplication1/web/historico.jsp</file>
-            <file>file:/C:/Users/Kenshi/Desktop/proyecto_feria/WebApplication1/src/java/org/feria/app/App.java</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/controller/ArduinoActuadorServletController.java</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/web/historicoActuador.jsp</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/web/pruebaInterval.jsp</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/app/RandServlet.java</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/web/historico.jsp</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/model/HistorialDispositivosDAOFactory.java</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/bd/Conexion.java</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/app/App.java</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/bd/script/script_bd.sql</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/model/HistorialSensorDAO.java</file>
+            <file>file:/home/martin/Dropbox/Java/Proyectos/proyectoFeria/WebApplication1/src/java/org/feria/controller/UpdateHistoryServlet.java</file>
         </group>
     </open-files>
 </project-private>
